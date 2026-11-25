@@ -1,0 +1,549 @@
+[gd_scene load_steps=2 format=3 uid="uid://b_battle_001"]
+
+[ext_resource type="Script" path="res://scenes/battle.gd" id="1_script"]
+
+[node name="Battle" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_script")
+
+[node name="Bg" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.05, 0.05, 0.1, 1)
+
+[node name="TopBar" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 70.0
+theme_override_constants/separation = 30
+
+[node name="SanityBox" type="VBoxContainer" parent="TopBar"]
+layout_mode = 2
+custom_minimum_size = Vector2(260, 0)
+
+[node name="SanityLabel" type="Label" parent="TopBar/SanityBox"]
+layout_mode = 2
+text = "理智  100"
+theme_override_font_sizes/font_size = 14
+theme_override_colors/font_color = Color(0.6, 0.85, 1, 1)
+
+[node name="SanityBar" type="ProgressBar" parent="TopBar/SanityBox"]
+layout_mode = 2
+custom_minimum_size = Vector2(260, 18)
+max_value = 100.0
+value = 100.0
+show_percentage = false
+
+[node name="BeliefBox" type="VBoxContainer" parent="TopBar"]
+layout_mode = 2
+custom_minimum_size = Vector2(260, 0)
+
+[node name="BeliefLabel" type="Label" parent="TopBar/BeliefBox"]
+layout_mode = 2
+text = "信念  100"
+theme_override_font_sizes/font_size = 14
+theme_override_colors/font_color = Color(1, 0.7, 0.6, 1)
+
+[node name="BeliefBar" type="ProgressBar" parent="TopBar/BeliefBox"]
+layout_mode = 2
+custom_minimum_size = Vector2(260, 18)
+max_value = 100.0
+value = 100.0
+show_percentage = false
+
+[node name="PublicBox" type="VBoxContainer" parent="TopBar"]
+layout_mode = 2
+custom_minimum_size = Vector2(260, 0)
+
+[node name="PublicLabel" type="Label" parent="TopBar/PublicBox"]
+layout_mode = 2
+text = "围观  50"
+theme_override_font_sizes/font_size = 14
+theme_override_colors/font_color = Color(0.85, 0.8, 0.5, 1)
+
+[node name="PublicBar" type="ProgressBar" parent="TopBar/PublicBox"]
+layout_mode = 2
+custom_minimum_size = Vector2(260, 18)
+max_value = 100.0
+value = 50.0
+show_percentage = false
+
+[node name="Spacer" type="Control" parent="TopBar"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="PersonaLabel" type="Label" parent="TopBar"]
+layout_mode = 2
+custom_minimum_size = Vector2(150, 0)
+text = "🔥 火爆脾气"
+horizontal_alignment = 2
+theme_override_font_sizes/font_size = 15
+theme_override_colors/font_color = Color(1, 0.75, 0.55, 1)
+
+[node name="RoundLabel" type="Label" parent="TopBar"]
+layout_mode = 2
+custom_minimum_size = Vector2(140, 0)
+text = "第 1 / 9 回合"
+horizontal_alignment = 2
+theme_override_font_sizes/font_size = 16
+theme_override_colors/font_color = Color(0.85, 0.9, 1, 1)
+
+[node name="StageLabel" type="Label" parent="TopBar"]
+layout_mode = 2
+custom_minimum_size = Vector2(180, 0)
+text = "阶段 1 · 自洽开局"
+horizontal_alignment = 2
+theme_override_font_sizes/font_size = 14
+theme_override_colors/font_color = Color(0.7, 0.75, 0.85, 1)
+
+[node name="BossArea" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_top = 0.12
+anchor_right = 1.0
+anchor_bottom = 0.45
+theme_override_constants/separation = 30
+
+[node name="BossPortrait" type="ColorRect" parent="BossArea"]
+layout_mode = 2
+custom_minimum_size = Vector2(220, 220)
+color = Color(0.25, 0.45, 0.7, 1)
+
+[node name="BossInfo" type="VBoxContainer" parent="BossArea"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="BossName" type="Label" parent="BossArea/BossInfo"]
+layout_mode = 2
+text = "自洽先生"
+theme_override_font_sizes/font_size = 28
+theme_override_colors/font_color = Color(0.9, 0.92, 1, 1)
+
+[node name="BossSub" type="Label" parent="BossArea/BossInfo"]
+layout_mode = 2
+text = "（一个陷入自我逻辑闭环的人）"
+theme_override_font_sizes/font_size = 14
+theme_override_colors/font_color = Color(0.55, 0.6, 0.7, 1)
+
+[node name="DialogArea" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_top = 0.48
+anchor_right = 1.0
+anchor_bottom = 0.68
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_right = 30
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="BossLine" type="RichTextLabel" parent="DialogArea"]
+layout_mode = 2
+bbcode_enabled = true
+fit_content = true
+scroll_following = true
+theme_override_font_sizes/font_size = 18
+theme_override_colors/default_color = Color(0.85, 0.88, 0.95, 1)
+
+[node name="ActionPanel" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_top = 0.72
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_right = 30
+theme_override_constants/margin_top = 6
+theme_override_constants/margin_bottom = 12
+
+[node name="VBox" type="VBoxContainer" parent="ActionPanel"]
+layout_mode = 2
+theme_override_constants/separation = 6
+
+[node name="StanceLabel" type="Label" parent="ActionPanel/VBox"]
+layout_mode = 2
+text = "对方姿态：挑衅 · 他在压你、激你自证"
+theme_override_font_sizes/font_size = 15
+theme_override_colors/font_color = Color(1, 0.75, 0.55, 1)
+
+[node name="HintLabel" type="Label" parent="ActionPanel/VBox"]
+layout_mode = 2
+text = "选一句最克他这招的话"
+theme_override_font_sizes/font_size = 13
+theme_override_colors/font_color = Color(0.6, 0.7, 0.85, 1)
+
+[node name="OptionsBox" type="HBoxContainer" parent="ActionPanel/VBox"]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="UtilBox" type="HBoxContainer" parent="ActionPanel/VBox"]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="BtnEvidence" type="Button" parent="ActionPanel/VBox/UtilBox"]
+layout_mode = 2
+custom_minimum_size = Vector2(360, 40)
+size_flags_horizontal = 3
+text = "🧩 亮出论据（0）"
+theme_override_font_sizes/font_size = 15
+
+[node name="BtnWithdraw" type="Button" parent="ActionPanel/VBox/UtilBox"]
+layout_mode = 2
+custom_minimum_size = Vector2(220, 40)
+size_flags_horizontal = 0
+text = "🚪 撤离 ｜ 终止对话"
+theme_override_font_sizes/font_size = 15
+
+[node name="FeedbackLabel" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.55
+anchor_right = 0.5
+anchor_bottom = 0.55
+offset_left = -360.0
+offset_top = -44.0
+offset_right = 360.0
+offset_bottom = 44.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+text = ""
+horizontal_alignment = 1
+vertical_alignment = 1
+theme_override_font_sizes/font_size = 40
+theme_override_colors/font_color = Color(1, 0.85, 0.4, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 0.8)
+theme_override_constants/outline_size = 6
+
+[node name="VignetteLayer" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 0)
+
+[node name="NoiseLayer" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 0)
+
+[node name="HitLayer" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="QuizPopup" type="Control" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="DimBg" type="ColorRect" parent="QuizPopup"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.7)
+
+[node name="Margin" type="MarginContainer" parent="QuizPopup"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -320.0
+offset_top = -260.0
+offset_right = 320.0
+offset_bottom = 260.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 24
+theme_override_constants/margin_right = 24
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="VBox" type="VBoxContainer" parent="QuizPopup/Margin"]
+layout_mode = 2
+theme_override_constants/separation = 14
+
+[node name="Header" type="Label" parent="QuizPopup/Margin/VBox"]
+layout_mode = 2
+text = "⚠ 逻辑谬误识别（多选）"
+theme_override_font_sizes/font_size = 22
+theme_override_colors/font_color = Color(1, 0.85, 0.5, 1)
+
+[node name="QuestionLabel" type="Label" parent="QuizPopup/Margin/VBox"]
+layout_mode = 2
+autowrap_mode = 3
+text = ""
+custom_minimum_size = Vector2(0, 80)
+theme_override_font_sizes/font_size = 16
+theme_override_colors/font_color = Color(0.88, 0.9, 0.95, 1)
+
+[node name="OptionsContainer" type="VBoxContainer" parent="QuizPopup/Margin/VBox"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="SubmitBtn" type="Button" parent="QuizPopup/Margin/VBox"]
+layout_mode = 2
+custom_minimum_size = Vector2(0, 42)
+text = "提交答案"
+theme_override_font_sizes/font_size = 16
+
+[node name="ExplainPopup" type="Control" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="DimBg" type="ColorRect" parent="ExplainPopup"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.75)
+
+[node name="Margin" type="MarginContainer" parent="ExplainPopup"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -320.0
+offset_top = -220.0
+offset_right = 320.0
+offset_bottom = 220.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 24
+theme_override_constants/margin_right = 24
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="VBox" type="VBoxContainer" parent="ExplainPopup/Margin"]
+layout_mode = 2
+theme_override_constants/separation = 14
+
+[node name="Header" type="Label" parent="ExplainPopup/Margin/VBox"]
+layout_mode = 2
+text = "📝 即时解析与后果"
+theme_override_font_sizes/font_size = 22
+theme_override_colors/font_color = Color(0.85, 0.92, 1, 1)
+
+[node name="ExplainLabel" type="RichTextLabel" parent="ExplainPopup/Margin/VBox"]
+layout_mode = 2
+bbcode_enabled = true
+fit_content = true
+autowrap_mode = 3
+custom_minimum_size = Vector2(0, 120)
+theme_override_font_sizes/font_size = 15
+theme_override_colors/default_color = Color(0.88, 0.9, 0.95, 1)
+
+[node name="ContinueBtn" type="Button" parent="ExplainPopup/Margin/VBox"]
+layout_mode = 2
+custom_minimum_size = Vector2(0, 42)
+text = "继续争辩"
+theme_override_font_sizes/font_size = 16
+
+[node name="WithdrawPopup" type="Control" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="DimBg" type="ColorRect" parent="WithdrawPopup"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.75)
+
+[node name="Margin" type="MarginContainer" parent="WithdrawPopup"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -260.0
+offset_top = -150.0
+offset_right = 260.0
+offset_bottom = 150.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 24
+theme_override_constants/margin_right = 24
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="VBox" type="VBoxContainer" parent="WithdrawPopup/Margin"]
+layout_mode = 2
+theme_override_constants/separation = 14
+
+[node name="Header" type="Label" parent="WithdrawPopup/Margin/VBox"]
+layout_mode = 2
+text = "⚠ 确认撤离？"
+horizontal_alignment = 1
+theme_override_font_sizes/font_size = 22
+theme_override_colors/font_color = Color(1, 0.85, 0.5, 1)
+
+[node name="ReactLabel" type="Label" parent="WithdrawPopup/Margin/VBox"]
+layout_mode = 2
+autowrap_mode = 3
+text = ""
+custom_minimum_size = Vector2(0, 50)
+horizontal_alignment = 1
+theme_override_font_sizes/font_size = 16
+theme_override_colors/font_color = Color(0.85, 0.88, 0.95, 1)
+
+[node name="HBox" type="HBoxContainer" parent="WithdrawPopup/Margin/VBox"]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="BtnEnd" type="Button" parent="WithdrawPopup/Margin/VBox/HBox"]
+layout_mode = 2
+custom_minimum_size = Vector2(0, 44)
+size_flags_horizontal = 3
+text = "✕ 结束对话"
+theme_override_font_sizes/font_size = 16
+
+[node name="BtnContinue" type="Button" parent="WithdrawPopup/Margin/VBox/HBox"]
+layout_mode = 2
+custom_minimum_size = Vector2(0, 44)
+size_flags_horizontal = 3
+text = "↩ 继续忍受争辩"
+theme_override_font_sizes/font_size = 16
+
+[node name="EndingPopup" type="Control" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="DimBg" type="ColorRect" parent="EndingPopup"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.85)
+
+[node name="Margin" type="MarginContainer" parent="EndingPopup"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -360.0
+offset_top = -320.0
+offset_right = 360.0
+offset_bottom = 320.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_right = 30
+theme_override_constants/margin_top = 25
+theme_override_constants/margin_bottom = 25
+
+[node name="VBox" type="VBoxContainer" parent="EndingPopup/Margin"]
+layout_mode = 2
+theme_override_constants/separation = 6
+
+[node name="EndTitle" type="Label" parent="EndingPopup/Margin/VBox"]
+layout_mode = 2
+text = ""
+horizontal_alignment = 1
+theme_override_font_sizes/font_size = 30
+theme_override_colors/font_color = Color(0.9, 0.95, 1, 1)
+
+[node name="EndSub" type="Label" parent="EndingPopup/Margin/VBox"]
+layout_mode = 2
+text = ""
+horizontal_alignment = 1
+theme_override_font_sizes/font_size = 18
+theme_override_colors/font_color = Color(0.7, 0.8, 0.95, 1)
+
+[node name="GradeLabel" type="Label" parent="EndingPopup/Margin/VBox"]
+layout_mode = 2
+text = "S"
+horizontal_alignment = 1
+theme_override_font_sizes/font_size = 46
+theme_override_colors/font_color = Color(1, 0.85, 0.4, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 0.6)
+theme_override_constants/outline_size = 8
+
+[node name="EndText" type="RichTextLabel" parent="EndingPopup/Margin/VBox"]
+layout_mode = 2
+bbcode_enabled = true
+fit_content = true
+autowrap_mode = 3
+custom_minimum_size = Vector2(0, 40)
+theme_override_font_sizes/font_size = 17
+theme_override_colors/default_color = Color(0.85, 0.88, 0.95, 1)
+
+[node name="SummaryLabel" type="RichTextLabel" parent="EndingPopup/Margin/VBox"]
+layout_mode = 2
+size_flags_vertical = 3
+bbcode_enabled = true
+autowrap_mode = 3
+custom_minimum_size = Vector2(0, 190)
+theme_override_font_sizes/font_size = 14
+theme_override_colors/default_color = Color(0.78, 0.84, 0.94, 1)
+
+[node name="NewAchLabel" type="Label" parent="EndingPopup/Margin/VBox"]
+layout_mode = 2
+text = ""
+horizontal_alignment = 1
+custom_minimum_size = Vector2(0, 30)
+theme_override_font_sizes/font_size = 14
+theme_override_colors/font_color = Color(1, 0.85, 0.5, 1)
+
+[node name="BtnBack" type="Button" parent="EndingPopup/Margin/VBox"]
+layout_mode = 2
+custom_minimum_size = Vector2(0, 46)
+text = "返回主菜单"
+theme_override_font_sizes/font_size = 16

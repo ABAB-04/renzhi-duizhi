@@ -1,0 +1,111 @@
+[gd_scene load_steps=2 format=3 uid="uid://b_main_menu_001"]
+
+[ext_resource type="Script" path="res://scenes/main_menu.gd" id="1_script"]
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_script")
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.05, 0.05, 0.1, 1)
+
+[node name="TopBar" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -200.0
+offset_right = 200.0
+offset_top = 40.0
+offset_bottom = 160.0
+grow_horizontal = 2
+
+[node name="TitleLabel" type="Label" parent="TopBar"]
+layout_mode = 2
+text = "认知对峙"
+horizontal_alignment = 1
+theme_override_font_sizes/font_size = 64
+theme_override_colors/font_color = Color(0.85, 0.92, 1, 1)
+
+[node name="SubLabel" type="Label" parent="TopBar"]
+layout_mode = 2
+text = "—— 在无效的观念争辩里，守住自我和驳倒对方，往往不可兼得 ——"
+horizontal_alignment = 1
+theme_override_font_sizes/font_size = 16
+theme_override_colors/font_color = Color(0.6, 0.7, 0.85, 1)
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
+layout_mode = 2
+theme_override_constants/separation = 14
+
+[node name="BtnStart" type="Button" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+custom_minimum_size = Vector2(260, 52)
+text = "▶  开始争辩"
+theme_override_font_sizes/font_size = 20
+
+[node name="BtnAchievements" type="Button" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+custom_minimum_size = Vector2(260, 46)
+text = "★  成就"
+theme_override_font_sizes/font_size = 18
+
+[node name="BtnEndings" type="Button" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+custom_minimum_size = Vector2(260, 46)
+text = "🎬  结局图鉴"
+theme_override_font_sizes/font_size = 18
+
+[node name="BtnKnowledge" type="Button" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+custom_minimum_size = Vector2(260, 46)
+text = "📖  逻辑谬误知识库"
+theme_override_font_sizes/font_size = 18
+
+[node name="BtnSettings" type="Button" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+custom_minimum_size = Vector2(260, 46)
+text = "⚙  设置"
+theme_override_font_sizes/font_size = 18
+
+[node name="BtnQuit" type="Button" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+custom_minimum_size = Vector2(260, 46)
+text = "✕  退出"
+theme_override_font_sizes/font_size = 18
+
+[node name="Footer" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -200.0
+offset_top = -40.0
+offset_right = 200.0
+offset_bottom = -15.0
+grow_horizontal = 2
+text = "Demo v2.1  ·  Godot 4.x  ·  虚构思辨作品"
+horizontal_alignment = 1
+theme_override_font_sizes/font_size = 12
+theme_override_colors/font_color = Color(0.5, 0.55, 0.65, 1)
