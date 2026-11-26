@@ -34,6 +34,11 @@ assets/     # 图像、图标、字体
 
 角色立绘与场景图由 AI 生成工具辅助产出，并统一了风格提示词；仅用于本作品。字体为 Noto Sans SC（OFL 协议）。
 
-## 参赛
+## 开源协议
 
-第十一届中国大学生游戏设计大赛（金辰奖）主机端赛道 参赛作品。
+- **代码**：MIT License，可自由使用、修改、分发，保留版权声明即可。
+- **美术素材**（`assets/images/` 下的角色立绘与场景图）：由 AI 生图工具辅助产出，采用
+  [CC BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/deed.zh) 协议，可署名非商业使用。
+- **字体**：Noto Sans SC，遵循 SIL Open Font License。
+
+作者：杨佳其 · 云南大学
